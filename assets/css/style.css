@@ -1,0 +1,99 @@
+/* Racetrack */
+
+.Racer {}
+/* Car Body */
+
+.Racer p {
+	background: rgb(212, 212, 67);
+	border: 6px solid #333;
+	border-radius: 50% / 100%;
+	border-bottom-left-radius: .5em;
+	border-bottom-right-radius: .5em;
+	font-size: 16px;
+	padding: 0.2em;
+	position: relative;
+	text-align: center;
+	width: 100px;
+}
+/* Car Tire */
+
+.Racer p:after,
+.Racer p:before {
+	position: absolute;
+	color: black;
+	content: "●";
+	font-size: 2.5em;
+	width: 1em;
+	height: 1em;
+	top: 7px;
+}
+
+.Racer p:after {
+	right: 10px;
+}
+
+.Racer p:before {
+	left: 10px;
+}
+
+.Racer .linear {
+	background: rgb(226, 35, 35);
+}
+
+.Racer .ease-in {
+	background: rgb(60, 60, 139);
+}
+
+.Racer .ease-out {
+	background: rgb(228, 214, 214);
+}
+
+.Racer .ease-in-out {
+	background: rgb(36, 179, 36);
+}
+
+#go:target .Racer p.linear {
+	animation-timing-function: linear;
+}
+
+#go:target .Racer p.ease-in {
+	animation-timing-function: ease-in;
+}
+
+#go:target .Racer p.ease-out {
+	animation-timing-function: ease-out;
+}
+
+#go:target .Racer p.ease-in-out {
+	animation-timing-function: ease-in-out;
+}
+
+@keyframes race {
+	0% {
+		transform: translate(0);
+	}
+	100% {
+		transform: translate(780px);
+	}
+}
+
+#go:target .Racer p {
+	-webkit-animation: race 4s;
+	animation: race 4s;
+}
+/* Control Links */
+
+a[href="#go"],
+a[href="#reset"] {
+	padding: 5px 10px;
+	background: white;
+	border-radius: 1em;
+	text-decoration: none;
+}
+/* Hover state of the control links */
+
+a[href="#go"]:hover,
+a[href="#reset"]:hover {
+	background: rgb(218, 202, 200);
+	color: rgb(23, 167, 35);
+}
